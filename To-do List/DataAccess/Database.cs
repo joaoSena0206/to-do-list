@@ -7,9 +7,9 @@ namespace To_do_List.DataAccess
     {
         private readonly string _connectionString;
 
-        public Database(IConfiguration configuration)
+        public Database(string connectionString)
         {
-            _connectionString = configuration.GetConnectionString("DefaultConnection")!;
+            _connectionString = connectionString;
         }
 
         public void ExecuteCommand(string commandString, List<SqlParameter>? parameters = null)
