@@ -5,7 +5,7 @@ namespace To_do_List.DataAccess
 {
     public class Database
     {
-        private string _connectionString;
+        private readonly string _connectionString;
 
         public Database(string connectionString)
         {
