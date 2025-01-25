@@ -6,10 +6,12 @@ namespace To_do_List.DTOs
     {
         [Required(ErrorMessage = "Email é obrigatório!")]
         [DataType(DataType.EmailAddress)]
+        [EmailAddress(ErrorMessage = "Email inválido!")]
         public string? Email { get; set; }
 
         [Required(ErrorMessage = "Senha é obrigatória!")]
         [DataType(DataType.Password)]
+        [MinLength(8, ErrorMessage = "A senha deve ter pelo menos 6 caracteres!")]
         public string? Password { get; set; }
 
         [Required(ErrorMessage = "Confirme a senha!")]
