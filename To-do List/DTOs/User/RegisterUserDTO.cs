@@ -12,7 +12,6 @@ namespace To_do_List.DTOs.User
 
         [Required(ErrorMessage = "Senha é obrigatória!")]
         [DataType(DataType.Password)]
-        [PasswordStrength]
         public string? Password { get; set; }
 
         [Required(ErrorMessage = "Confirme a senha!")]

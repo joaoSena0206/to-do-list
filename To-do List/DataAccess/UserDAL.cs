@@ -13,7 +13,7 @@ namespace To_do_List.DataAccess
             _database = database;
         }
 
-        public void CreateUser(User user)
+        public void AddUser(User user)
         {
             string comando = @"
             INSERT INTO usuario VALUES (
