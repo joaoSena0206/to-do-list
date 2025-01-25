@@ -14,10 +14,10 @@ namespace To_do_List.Models
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        public User(string email, string password)
+        public User()
         {
-            Email = email;
-            Password = password;
+            Email = string.Empty;
+            Password = string.Empty;
         }
     }
 }
