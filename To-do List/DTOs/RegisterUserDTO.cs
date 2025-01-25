@@ -11,5 +11,10 @@ namespace To_do_List.DTOs
         [Required(ErrorMessage = "Senha é obrigatória!")]
         [DataType(DataType.Password)]
         public string? Password { get; set; }
+
+        [Required(ErrorMessage = "Confirme a senha!")]
+        [DataType(DataType.Password)]
+        [Compare("Password", ErrorMessage = "As senhas não estão iguais!")]
+        public string? ConfirmPassword { get; set; }
     }
 }
