@@ -15,7 +15,6 @@ namespace To_do_List.DataAccess
 
         public void CreateUser(User user)
         {
-            // Insere no banco o usuário
             string comando = @"
             INSERT INTO usuario VALUES (
 	            @Email,
