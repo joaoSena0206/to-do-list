@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using To_do_List.Validations;
 
 namespace To_do_List.DTOs.User
 {
@@ -11,7 +12,7 @@ namespace To_do_List.DTOs.User
 
         [Required(ErrorMessage = "Senha é obrigatória!")]
         [DataType(DataType.Password)]
-        [MinLength(8, ErrorMessage = "A senha deve ter pelo menos 6 caracteres!")]
+        [PasswordStrength]
         public string? Password { get; set; }
 
         [Required(ErrorMessage = "Confirme a senha!")]
