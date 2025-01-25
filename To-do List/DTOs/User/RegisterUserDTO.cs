@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace To_do_List.DTOs
+namespace To_do_List.DTOs.User
 {
     public class RegisterUserDTO
     {
