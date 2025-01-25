@@ -1,5 +1,4 @@
-﻿using BCrypt.Net;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 using To_do_List.Models;
 
 namespace To_do_List.DataAccess
@@ -16,9 +15,6 @@ namespace To_do_List.DataAccess
 
         public void CreateUser(User user)
         {
-            // Efetua o hash da senha
-            user.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
-
             // Insere no banco o usuário
             string comando = @"
             INSERT INTO usuario VALUES (
