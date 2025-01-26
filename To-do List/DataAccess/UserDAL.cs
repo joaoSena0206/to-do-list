@@ -15,11 +15,7 @@ namespace To_do_List.DataAccess
 
         public void AddUser(User user)
         {
-            string comando = @"
-            INSERT INTO usuario VALUES (
-	            @Email,
-	            @Password
-            );";
+            string comando = "EXEC RegisterUser @Email, @Password";
 
             List<SqlParameter> parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("Email", user.Email));
