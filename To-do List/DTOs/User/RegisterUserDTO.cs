@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using To_do_List.Validations;
 
 namespace To_do_List.DTOs.User
 {
