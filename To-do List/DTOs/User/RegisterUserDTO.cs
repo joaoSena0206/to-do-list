@@ -15,7 +15,7 @@ namespace To_do_List.DTOs.User
 
         [Required(ErrorMessage = "Confirme a senha!")]
         [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "As senhas não estão iguais!")]
+        [Compare("Password", ErrorMessage = "As senhas não são iguais!")]
         public string? ConfirmPassword { get; set; }
     }
 }
