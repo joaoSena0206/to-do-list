@@ -24,7 +24,8 @@ namespace To_do_List.Services
             string password = userDTO.Password;
             List<string> errors = new List<string>();
 
-            // Checa a segurança da senha do usuário para evitar ataques
+            #region Checa a segurança da senha do usuário para evitar ataques
+
             if (!Regex.IsMatch(password, "[A-Z]"))
             {
                 errors.Add("A senha deve conter pelo menos uma letra maiúscula!");
@@ -49,6 +50,8 @@ namespace To_do_List.Services
             {
                 throw new Exception(JsonConvert.SerializeObject(errors, Formatting.Indented));
             }
+
+            #endregion
 
             User user = new User() {
                 Email = userDTO.Email,
