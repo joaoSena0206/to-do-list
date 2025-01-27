@@ -37,5 +37,31 @@ namespace To_do_List.DataAccess
                 }
             }
         }
+
+        public string GetPasswordHash(string email)
+        {
+            string command = @"SELECT nm_senha_usuario FROM usuario
+            WHERE nm_email_usuario = @Email";
+
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("Email", email));
+
+            string passwordHash = "";
+
+            using (SqlDataReader reader = _database.ExecuteQuery(command, parameters))
+            {
+                if (reader.Read())
+                {
+                    passwordHash = reader.GetString(0);
+                }
+            }
+
+            if (passwordHash == null)
+            {
+                throw new Exception("O usuário não está cadastrado!");
+            }
+
+            return passwordHash;
+        }
     }
 }
