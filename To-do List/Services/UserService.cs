@@ -18,47 +18,5 @@ namespace To_do_List.Services
         {
             _userDAL = userDAL;
         }
-
-        public void RegisterUser(RegisterUserDTO userDTO)
-        {
-            string password = userDTO.Password;
-            List<string> errors = new List<string>();
-
-            #region Checa a segurança da senha do usuário para evitar ataques
-
-            if (!Regex.IsMatch(password, "[A-Z]"))
-            {
-                errors.Add("A senha deve conter pelo menos uma letra maiúscula!");
-            }
-
-            if (!Regex.IsMatch(password, "[a-z]"))
-            {
-                errors.Add("A senha deve conter pelo menos uma letra minúscula!");
-            }
-
-            if (!Regex.IsMatch(password, "[0-9]"))
-            {
-                errors.Add("A senha deve conter pelo menos um número!");
-            }
-
-            if (!Regex.IsMatch(password, "[!@#$&*]"))
-            {
-                errors.Add("A senha deve conter pelo menos um caractere especial!");
-            }
-
-            if (errors.Count > 0)
-            {
-                throw new Exception(JsonConvert.SerializeObject(errors, Formatting.Indented));
-            }
-
-            #endregion
-
-            User user = new User() {
-                Email = userDTO.Email,
-                Password = BCrypt.Net.BCrypt.HashPassword(userDTO.Password)
-            };
-
-            _userDAL.AddUser(user);
-        }
     }
 }
