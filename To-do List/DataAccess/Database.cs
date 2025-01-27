@@ -34,20 +34,20 @@ namespace To_do_List.DataAccess
 
         public SqlDataReader ExecuteQuery(string commandString, List<SqlParameter>? parameters = null)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            SqlConnection connection = new SqlConnection(_connectionString);
+            connection.Open();
+
+            SqlCommand command = new SqlCommand(commandString, connection);
+
+            if (parameters != null)
             {
-                SqlCommand command = new SqlCommand(commandString, connection);
-
-                if (parameters != null)
+                foreach (SqlParameter param in parameters)
                 {
-                    foreach (SqlParameter param in parameters)
-                    {
-                        command.Parameters.Add(param);
-                    }
+                    command.Parameters.Add(param);
                 }
-
-                return command.ExecuteReader(CommandBehavior.CloseConnection);
             }
+
+            return command.ExecuteReader(CommandBehavior.CloseConnection);
         }
     }
 }
