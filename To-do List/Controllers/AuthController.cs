@@ -16,7 +16,7 @@ namespace To_do_List.Controllers
         }
 
         [HttpPost("signup")]
-        public IActionResult SignUpUser([FromBody] RegisterUserDTO userDTO)
+        public IActionResult SignUpUser(RegisterUserDTO userDTO)
         {
             try
             {
