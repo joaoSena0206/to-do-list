@@ -14,20 +14,5 @@ namespace To_do_List.Controllers
         {
             _userService = userService;
         }
-
-        [HttpPost]
-        public IActionResult CreateUser([FromBody] RegisterUserDTO userDTO)
-        {
-            try
-            {
-                _userService.RegisterUser(userDTO);
-
-                return Ok("Usuário cadastrado com sucesso!");
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
     }
 }

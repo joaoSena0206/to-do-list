@@ -15,7 +15,22 @@ namespace To_do_List.Controllers
             _authService = authService;
         }
 
-        [HttpPost]
+        [HttpPost("signup")]
+        public IActionResult SignUpUser([FromBody] RegisterUserDTO userDTO)
+        {
+            try
+            {
+                _authService.RegisterUser(userDTO);
+
+                return Ok("Usuário cadastrado com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost("signin")]
         public IActionResult SignInUser(LoginUserDTO user)
         {
             try
