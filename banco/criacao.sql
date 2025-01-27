@@ -8,7 +8,7 @@ DROP PROCEDURE IF EXISTS RegisterUser;
 CREATE TABLE usuario 
 (
 	nm_email_usuario NVARCHAR(254) PRIMARY KEY,
-	nm_senha NVARCHAR(255) NOT NULL
+	nm_senha_usuario NVARCHAR(255) NOT NULL
 );
 
 CREATE TABLE tarefa
