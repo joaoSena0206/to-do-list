@@ -1,31 +1,35 @@
-using System.Text.Encodings.Web;
+
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using To_do_List.DataAccess;
 using To_do_List.Services;
+using Scalar.AspNetCore;
+using To_do_List.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
 string connectionString = builder.Configuration.GetConnectionString("DefaultConnection")!;
 
-// Add services to the container.
-
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<UserDAL>(provider => new UserDAL(connectionString));
 builder.Services.AddTransient<UserService>();
+builder.Services.AddTransient<AuthService>();
+
+builder.Services.AddOpenApi();
+
+builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    // Enable Swagger middleware for API documentation
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.MapOpenApi();
+    app.MapScalarApiReference();
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
 
 app.MapControllers();
