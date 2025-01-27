@@ -56,11 +56,6 @@ namespace To_do_List.DataAccess
                 }
             }
 
-            if (passwordHash == null)
-            {
-                throw new Exception("O usuário não está cadastrado!");
-            }
-
             return passwordHash;
         }
     }
