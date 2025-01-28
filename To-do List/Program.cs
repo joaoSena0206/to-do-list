@@ -13,9 +13,13 @@ string connectionString = builder.Configuration.GetConnectionString("DefaultConn
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddTransient<UserDAL>(provider => new UserDAL(connectionString));
+builder.Services.AddScoped<Database>(provider => new Database(connectionString));
+builder.Services.AddScoped<UserDAL>();
+builder.Services.AddScoped<TaskDAL>();
+
 builder.Services.AddTransient<UserService>();
 builder.Services.AddTransient<AuthService>();
+builder.Services.AddTransient<TaskService>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
