@@ -7,9 +7,8 @@ namespace To_do_List.DataAccess
     {
         private readonly Database _database;
 
-        public UserDAL(string connectionString)
+        public UserDAL(Database database)
         {
-            Database database = new Database(connectionString);
             _database = database;
         }
 
