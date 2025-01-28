@@ -1,4 +1,3 @@
-
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using To_do_List.DataAccess;
@@ -6,6 +5,7 @@ using To_do_List.Services;
 using Scalar.AspNetCore;
 using To_do_List.Configurations;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+
 
 var builder = WebApplication.CreateBuilder(args);
 string connectionString = builder.Configuration.GetConnectionString("DefaultConnection")!;

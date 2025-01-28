@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -85,25 +85,25 @@ namespace To_do_List.Services
 
         private string GenerateToken(string email)
         {
-            List<Claim> claims = new List<Claim>()
+            Dictionary<string, object> claims = new Dictionary<string, object>
             {
-                new Claim(ClaimTypes.Name, email)
+                [ClaimTypes.Name] = email
             };
 
-            SymmetricSecurityKey key = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(_jwtSettings.SecretKey));
+            SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.SecretKey));
 
-            SigningCredentials creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            SigningCredentials creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
 
-            JwtSecurityToken tokenDescriptor = new JwtSecurityToken(
-                issuer: _jwtSettings.Issuer,
-                audience: _jwtSettings.Audience,
-                claims: claims,
-                expires: DateTime.UtcNow.AddHours(2),
-                signingCredentials: creds
-                );
+            SecurityTokenDescriptor tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Issuer = _jwtSettings.Issuer,
+                Audience = _jwtSettings.Audience,
+                Claims = claims,
+                Expires = DateTime.UtcNow.AddHours(2),
+                SigningCredentials = creds
+            };
 
-            return new JwtSecurityTokenHandler().WriteToken(tokenDescriptor);
+            return new JsonWebTokenHandler().CreateToken(tokenDescriptor);
         }
     }
 }
