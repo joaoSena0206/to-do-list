@@ -9,5 +9,11 @@ namespace To_do_List.DTOs.Task
 
         public string Description { get; set; }
         public DateTime? DueDate { get; set; }
+
+        public CreateTaskDTO()
+        {
+            Title = string.Empty;
+            Description = string.Empty;
+        }
     }
 }

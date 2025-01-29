@@ -17,5 +17,12 @@ namespace To_do_List.DTOs.User
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "As senhas não são iguais!")]
         public string ConfirmPassword { get; set; }
+
+        public RegisterUserDTO()
+        {
+            Email = string.Empty;
+            Password = string.Empty;
+            ConfirmPassword = string.Empty;
+        }
     }
 }
