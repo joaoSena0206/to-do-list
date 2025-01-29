@@ -1,5 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
-using To_do_List.Models;
+using To_do_List.DTOs.Task;
 
 namespace To_do_List.DataAccess
 {
@@ -38,6 +38,45 @@ namespace To_do_List.DataAccess
             };
 
             _database.ExecuteCommand(command, parameters);
+        }
+
+        public List<ShowTaskDTO> GetTasks(string email)
+        {
+            string command = @"
+            SELECT
+	            cd_tarefa,
+	            nm_titulo_tarefa,
+	            ds_tarefa,
+	            dt_vencimento_tarefa,
+	            ic_concluido_tarefa
+            FROM tarefa
+            WHERE nm_email_usuario = @Email";
+
+            List<SqlParameter> parameters = new List<SqlParameter>
+            { 
+                new SqlParameter("Email", email)
+            };
+
+            List<ShowTaskDTO> tasks = new List<ShowTaskDTO>();
+
+            using (SqlDataReader reader = _database.ExecuteQuery(command, parameters))
+            {
+                while (reader.Read())
+                {
+                    ShowTaskDTO task = new ShowTaskDTO
+                    {
+                         Id = reader.GetInt32(0),
+                         Title = reader.GetString(1),
+                         Description = reader.GetString(2),
+                         DueDate = reader.GetDateTime(3),
+                         IsCompleted = reader.GetBoolean(4)
+                    };
+
+                    tasks.Add(task);
+                }
+            }
+
+            return tasks;
         }
     }
 }
