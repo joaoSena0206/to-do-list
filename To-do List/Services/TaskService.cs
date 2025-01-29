@@ -29,7 +29,19 @@ namespace To_do_List.Services
 
         public List<ShowTaskDTO> GetTasks(string email)
         {
-             return _taskDAL.GetTasks(email);
+            return _taskDAL.GetTasks(email);
+        }
+
+        public void CompleteTask(int taskId, string email)
+        {
+            if (_taskDAL.CheckTaskExistence(taskId, email))
+            {
+                _taskDAL.CompleteTask(taskId);
+            }
+            else
+            {
+                throw new Exception("Tarefa não encontrada!");
+            }
         }
     }
 }

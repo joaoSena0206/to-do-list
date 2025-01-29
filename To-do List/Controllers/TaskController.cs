@@ -48,5 +48,21 @@ namespace To_do_List.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpPatch]
+        [Authorize]
+        public IActionResult CompleteTask(int taskId)
+        {
+            try
+            {
+                _taskService.CompleteTask(taskId, User.FindFirstValue(ClaimTypes.Name)!);
+
+                return Ok("Tarefa completada com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

@@ -78,5 +78,48 @@ namespace To_do_List.DataAccess
 
             return tasks;
         }
+
+        public void CompleteTask(int taskId)
+        {
+            string command = @"
+            UPDATE tarefa
+            SET ic_concluido_tarefa = 1
+            WHERE cd_tarefa = @IdTask";
+
+            List<SqlParameter> parameters = new List<SqlParameter>
+            { 
+                new SqlParameter("IdTask", taskId)
+            };
+
+            _database.ExecuteCommand(command, parameters);
+        }
+
+        public bool CheckTaskExistence(int taskId, string email)
+        {
+            string command = @"
+            SELECT 1 FROM tarefa
+            WHERE 
+                cd_tarefa = @IdTask AND
+                nm_email_usuario = @Email
+            ";
+
+            List<SqlParameter> parameters = new List<SqlParameter>
+            { 
+                new SqlParameter("IdTask", taskId),
+                new SqlParameter("Email", email)
+            };
+
+            bool doesTaskExist = false;
+
+            using (SqlDataReader reader = _database.ExecuteQuery(command, parameters))
+            {
+                if (reader.Read())
+                {
+                    doesTaskExist = reader.GetInt32(0) == 1 ? true : false;
+                }
+            }
+
+            return doesTaskExist;
+        }
     }
 }
