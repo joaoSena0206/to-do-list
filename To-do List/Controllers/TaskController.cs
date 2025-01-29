@@ -32,5 +32,21 @@ namespace To_do_List.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult GetTasks()
+        {
+            try
+            {
+                List<ShowTaskDTO> tasks = _taskService.GetTasks(User.FindFirstValue(ClaimTypes.Name)!);
+
+                return Ok(tasks);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

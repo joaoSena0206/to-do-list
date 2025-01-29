@@ -26,5 +26,10 @@ namespace To_do_List.Services
 
             _taskDAL.AddTask(task);
         }
+
+        public List<ShowTaskDTO> GetTasks(string email)
+        {
+             return _taskDAL.GetTasks(email);
+        }
     }
 }

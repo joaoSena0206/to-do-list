@@ -68,7 +68,7 @@ namespace To_do_List.DataAccess
                          Id = reader.GetInt32(0),
                          Title = reader.GetString(1),
                          Description = reader.GetString(2),
-                         DueDate = reader.GetDateTime(3),
+                         DueDate = reader.IsDBNull(3) ? "" : reader.GetDateTime(3).ToString("dd/MM/yyyy"),
                          IsCompleted = reader.GetBoolean(4)
                     };
 
