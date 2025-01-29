@@ -41,7 +41,7 @@ namespace To_do_List.Controllers
             {
                 List<ShowTaskDTO> tasks = _taskService.GetTasks(User.FindFirstValue(ClaimTypes.Name)!);
 
-                return Ok(tasks);
+                return Ok(tasks.Count > 0 ? tasks : "Nenhuma tarefa encontrada!");
             }
             catch (Exception ex)
             {
@@ -58,6 +58,22 @@ namespace To_do_List.Controllers
                 _taskService.CompleteTask(taskId, User.FindFirstValue(ClaimTypes.Name)!);
 
                 return Ok("Tarefa completada com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpDelete]
+        [Authorize]
+        public IActionResult DeleteTask(int taskId)
+        {
+            try
+            {
+                _taskService.DeleteTask(taskId, User.FindFirstValue(ClaimTypes.Name)!);
+
+                return Ok("Tarefa deletada com sucesso!");
             }
             catch (Exception ex)
             {

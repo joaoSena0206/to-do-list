@@ -43,5 +43,17 @@ namespace To_do_List.Services
                 throw new Exception("Tarefa não encontrada!");
             }
         }
+
+        public void DeleteTask(int taskId, string email)
+        {
+            if (_taskDAL.CheckTaskExistence(taskId, email))
+            {
+                _taskDAL.DeleteTask(taskId);
+            }
+            else
+            {
+                throw new Exception("Tarefa não encontrada!");
+            }
+        }
     }
 }

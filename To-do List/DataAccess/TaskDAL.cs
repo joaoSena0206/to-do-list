@@ -121,5 +121,19 @@ namespace To_do_List.DataAccess
 
             return doesTaskExist;
         }
+
+        public void DeleteTask(int taskId)
+        {
+            string command = @"
+            DELETE FROM tarefa
+            WHERE cd_tarefa = @IdTask";
+
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("IdTask", taskId)
+            };
+
+            _database.ExecuteCommand(command, parameters);
+        }
     }
 }
