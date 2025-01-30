@@ -88,6 +88,6 @@ Projeto feito utilizando uma arquitetura em camadas com:
 	dotnet run
 	```
 	
-## licença
+## Licença
 
 Este projeto está licenciado sob a Licença MIT.
