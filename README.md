@@ -8,7 +8,7 @@ Uma Web Api feita com ASP.NET Core e SQL Server, feita com o intuito de gerencia
 * [Estrutura do Projeto](#estrutura-do-projeto)
 * [Endpoints da API](#endpoints-da-api)
 * [Instalação](#instalacao)
-* [Licença[(#licenca)
+* [Licença](#licenca)
 
 ## Tecnologias Utilizadas
 
