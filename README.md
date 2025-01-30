@@ -84,5 +84,5 @@ Projeto feito utilizando uma arquitetura em camadas com:
 	```
 7. Quando quiser rodar o projeto só rodar esse comando na pasta:
 ```bash
-dotnet run
+	dotnet run
 ```
