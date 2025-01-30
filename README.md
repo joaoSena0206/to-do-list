@@ -8,6 +8,7 @@ Uma Web Api feita com ASP.NET Core e SQL Server, feita com o intuito de gerencia
 * [Estrutura do Projeto](#estrutura-do-projeto)
 * [Endpoints da API](#endpoints-da-api)
 * [Instalação](#instalacao)
+* [Licença[(#licenca)
 
 ## Tecnologias Utilizadas
 
@@ -86,3 +87,7 @@ Projeto feito utilizando uma arquitetura em camadas com:
 	```bash
 	dotnet run
 	```
+	
+## licença
+
+Este projeto está licenciado sob a Licença MIT.
