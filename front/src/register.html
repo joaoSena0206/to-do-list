@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back_ios" />
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="css/output.css" />
+
+        <title>Registrar</title>
+    </head>
+    <body class="bg-[#121212] px-6 py-10 text-white h-screen">
+        <header class="mb-10">
+            <a href="index.html">
+                <span class="material-symbols-outlined"> arrow_back_ios </span>
+            </a>
+        </header>
+        <main class="flex flex-col items-center">
+            <h1 class="font-bold text-3xl mb-10">Registrar</h1>
+
+            <section class="opacity-85 max-w-[500px] w-full">
+                <div class="mb-8">
+                    <label class="block mb-1" for="email">Email</label>
+                    <input class="bg-[#1D1D1D] focus:outline-none rounded-sm py-2.5 px-3 border-[#979797] border-[0.8px] w-full" placeholder="Digite seu email" id="email" />
+                </div>
+
+                <div class="mb-18">
+                    <label class="block mb-1" for="password">Senha</label>
+                    <input class="bg-[#1D1D1D] focus:outline-none rounded-sm py-2.5 px-3 border-[#979797] border-[0.8px] w-full" placeholder="Digite sua senha" id="password" />
+                </div>
+
+                <button class="bg-[#8875FF] rounded-md py-2.5 w-full mb-10 cursor-pointer disabled:opacity-50 disabled:cursor-auto" disabled>Registrar</button>
+
+                <div class="flex items-center mb-10">
+                    <div class="bg-[#979797] h-[1px] w-[50%]"></div>
+                    <p class="text-[#979797] -mt-[5px] mr-1 ml-1">ou</p>
+                    <div class="bg-[#979797] h-[1px] w-[50%]"></div>
+                </div>
+
+                <button class="border-[#8875FF] border-[1px] rounded-md py-2.5 w-full mb-10 flex justify-center cursor-pointer"><object class="mr-2" data="images/icons/google.svg" type="image/svg+xml"></object> Registrar com o Google</button>
+
+                <div class="w-full justify-center flex space-x-1.5">
+                    <p class="text-[#979797]">Já possui uma conta?</p>
+                    <a href="login.html">
+                        <p class="opacity-85">Logar</p>
+                    </a>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
