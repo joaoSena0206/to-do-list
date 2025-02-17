@@ -8,7 +8,7 @@
         <script src="https://npmcdn.com/flatpickr/dist/l10n/pt.js"></script>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=calendar_month" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,9 +18,12 @@
         <title>Home</title>
     </head>
     <body class="bg-[#121212]">
-        <div class="bg-[#000000]/75 w-screen h-screen absolute z-10 flex justify-center items-center">
+        <div id="formTask" class="bg-[#000000]/75 w-screen h-screen absolute z-10 hidden justify-center items-center">
             <div class="bg-[#363636] text-white w-full p-5 z-20">
-                <h1 class="text-[20px] font-bold mb-3">Add Task</h1>
+                <div class="mb-3 flex justify-between">
+                    <h1 class="text-[20px] font-bold">Add Task</h1>
+                    <span id="closeBtn" class="material-symbols-outlined"> close </span>
+                </div>
                 <input class="text-[18px] w-full border-[1px] border-[#979797] rounded-sm p-1.5 px-2.5 focus:outline-none mb-5" placeholder="Type your task" />
 
                 <h2 class="text-[20px] font-bold mb-3">Description</h2>
@@ -52,7 +55,9 @@
 
         <footer class="bg-[#363636] w-full h-15 fixed bottom-0">
             <div class="relative">
-                <object class="absolute -top-8 left-[50%] translate-x-[-50%]" data="images/icons/add.svg"></object>
+                <div id="addTaskBtn" class="absolute -top-8 left-[50%] translate-x-[-50%]">
+                    <object class="pointer-events-none" data="images/icons/add.svg"></object>
+                </div>
             </div>
         </footer>
 

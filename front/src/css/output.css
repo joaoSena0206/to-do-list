@@ -557,6 +557,9 @@
   .z-20 {
     z-index: 20;
   }
+  .z-50 {
+    z-index: 50;
+  }
   .-mt-\[5px\] {
     margin-top: calc(5px * -1);
   }
@@ -625,6 +628,15 @@
   }
   .h-\[1px\] {
     height: 1px;
+  }
+  .h-\[50px\] {
+    height: 50px;
+  }
+  .h-\[64px\] {
+    height: 64px;
+  }
+  .h-fit {
+    height: fit-content;
   }
   .h-screen {
     height: 100vh;
