@@ -1,6 +1,7 @@
 $(function () {
     const datePicker = flatpickr("#datepicker", {
-        dateFormat: "m-d-Y",
+        dateFormat: "m-d-Y H:i",
+        enableTime: true,
     });
 
     $("#calendar").on("click", function () {
@@ -13,5 +14,15 @@ $(function () {
 
     $("#closeBtn").on("click", function () {
         $("#formTask").addClass("hidden").removeClass("flex");
+    });
+
+    $("#dropdownDays").on("click", function () {
+        if ($("#dropdownOptions").hasClass("hidden")) {
+            $("#dropdownOptions").removeClass("hidden");
+        }
+        else
+        {
+            $("#dropdownOptions").addClass("hidden");
+        }
     });
 });

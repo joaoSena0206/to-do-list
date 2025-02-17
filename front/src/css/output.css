@@ -527,9 +527,6 @@
   .collapse {
     visibility: collapse;
   }
-  .invisible {
-    visibility: hidden;
-  }
   .absolute {
     position: absolute;
   }
@@ -557,23 +554,26 @@
   .z-20 {
     z-index: 20;
   }
-  .z-50 {
-    z-index: 50;
+  .-mt-1 {
+    margin-top: calc(var(--spacing) * -1);
+  }
+  .-mt-2 {
+    margin-top: calc(var(--spacing) * -2);
   }
   .-mt-\[5px\] {
     margin-top: calc(5px * -1);
   }
-  .mt-5 {
-    margin-top: calc(var(--spacing) * 5);
+  .mt-0 {
+    margin-top: calc(var(--spacing) * 0);
   }
-  .mt-7 {
-    margin-top: calc(var(--spacing) * 7);
+  .mt-0\.5 {
+    margin-top: calc(var(--spacing) * 0.5);
   }
-  .mt-8 {
-    margin-top: calc(var(--spacing) * 8);
+  .mt-1 {
+    margin-top: calc(var(--spacing) * 1);
   }
-  .mt-10 {
-    margin-top: calc(var(--spacing) * 10);
+  .mt-2 {
+    margin-top: calc(var(--spacing) * 2);
   }
   .mr-1 {
     margin-right: calc(var(--spacing) * 1);
@@ -595,9 +595,6 @@
   }
   .mb-10 {
     margin-bottom: calc(var(--spacing) * 10);
-  }
-  .mb-15 {
-    margin-bottom: calc(var(--spacing) * 15);
   }
   .mb-18 {
     margin-bottom: calc(var(--spacing) * 18);
@@ -629,20 +626,14 @@
   .h-\[1px\] {
     height: 1px;
   }
-  .h-\[50px\] {
-    height: 50px;
-  }
-  .h-\[64px\] {
-    height: 64px;
-  }
-  .h-fit {
-    height: fit-content;
-  }
   .h-screen {
     height: 100vh;
   }
   .w-\[50\%\] {
     width: 50%;
+  }
+  .w-fit {
+    width: fit-content;
   }
   .w-full {
     width: 100%;
@@ -655,9 +646,6 @@
   }
   .max-w-\[500px\] {
     max-width: 500px;
-  }
-  .flex-none {
-    flex: none;
   }
   .border-collapse {
     border-collapse: collapse;
@@ -690,6 +678,27 @@
   }
   .justify-center {
     justify-content: center;
+  }
+  .space-y-1 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 1) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 1) * calc(1 - var(--tw-space-y-reverse)));
+    }
+  }
+  .space-y-1\.5 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 1.5) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 1.5) * calc(1 - var(--tw-space-y-reverse)));
+    }
+  }
+  .space-y-2 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 2) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-y-reverse)));
+    }
   }
   .space-y-5 {
     :where(& > :not(:last-child)) {
@@ -725,6 +734,9 @@
       margin-inline-start: calc(calc(var(--spacing) * 3) * var(--tw-space-x-reverse));
       margin-inline-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-x-reverse)));
     }
+  }
+  .self-end {
+    align-self: flex-end;
   }
   .rounded-md {
     border-radius: var(--radius-md);
@@ -768,14 +780,26 @@
   .bg-\[\#979797\] {
     background-color: #979797;
   }
+  .bg-white {
+    background-color: var(--color-white);
+  }
+  .bg-white\/21 {
+    background-color: color-mix(in oklab, var(--color-white) 21%, transparent);
+  }
   .p-1 {
     padding: calc(var(--spacing) * 1);
   }
   .p-1\.5 {
     padding: calc(var(--spacing) * 1.5);
   }
+  .p-3 {
+    padding: calc(var(--spacing) * 3);
+  }
   .p-5 {
     padding: calc(var(--spacing) * 5);
+  }
+  .px-1 {
+    padding-inline: calc(var(--spacing) * 1);
   }
   .px-2 {
     padding-inline: calc(var(--spacing) * 2);
@@ -785,6 +809,9 @@
   }
   .px-3 {
     padding-inline: calc(var(--spacing) * 3);
+  }
+  .px-5 {
+    padding-inline: calc(var(--spacing) * 5);
   }
   .px-6 {
     padding-inline: calc(var(--spacing) * 6);
@@ -798,6 +825,9 @@
   .py-10 {
     padding-block: calc(var(--spacing) * 10);
   }
+  .py-15 {
+    padding-block: calc(var(--spacing) * 15);
+  }
   .pt-20 {
     padding-top: calc(var(--spacing) * 20);
   }
@@ -808,15 +838,6 @@
     font-size: var(--text-3xl);
     line-height: var(--tw-leading, var(--text-3xl--line-height));
   }
-  .\!text-\[10px\] {
-    font-size: 10px !important;
-  }
-  .text-\[10px\] {
-    font-size: 10px;
-  }
-  .text-\[15px\] {
-    font-size: 15px;
-  }
   .text-\[18px\] {
     font-size: 18px;
   }
@@ -825,14 +846,6 @@
   }
   .text-\[22px\] {
     font-size: 22px;
-  }
-  .font-\[15px\] {
-    --tw-font-weight: 15px;
-    font-weight: 15px;
-  }
-  .font-\[24px\] {
-    --tw-font-weight: 24px;
-    font-weight: 24px;
   }
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);

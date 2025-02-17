@@ -40,8 +40,8 @@
             </div>
         </div>
 
-        <main>
-            <div class="absolute top-[35%] -translate-y-[50%] w-full flex flex-col items-center">
+        <main class="px-5 py-15">
+            <div class="hidden absolute top-[35%] -translate-y-[50%] w-full flex-col items-center">
                 <figure>
                     <img src="images/home.png" alt="What do you want to do today?" srcset="" />
                 </figure>
@@ -49,6 +49,18 @@
                 <div class="text-white text-center">
                     <h1 class="text-[22px] mb-3">What do you want to do today?</h1>
                     <h2>Tap + to add your tasks</h2>
+                </div>
+            </div>
+
+            <div class="bg-white/21 w-fit py-2 px-2 rounded-md">
+                <div id="dropdownDays" class="flex text-white space-x-2">
+                    <p>Today</p>
+                    <span class="material-symbols-outlined mt-0.5"> keyboard_arrow_down </span>
+                </div>
+
+                <div id="dropdownOptions" class="text-white mt-2 space-y-1.5 hidden">
+                    <div>Tomorrow</div>
+                    <div>Other</div>
                 </div>
             </div>
         </main>
