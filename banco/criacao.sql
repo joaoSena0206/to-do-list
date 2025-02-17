@@ -1,4 +1,4 @@
-USE [todo-list];
+USE [todo_list];
 
 DROP TABLE IF EXISTS usuario;
 DROP TABLE IF EXISTS tarefa;
