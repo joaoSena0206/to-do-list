@@ -1,6 +1,6 @@
 $(function () {
     const datePicker = flatpickr("#datepicker", {
-        dateFormat: "d-m-Y",
+        dateFormat: "m-d-Y",
     });
 
     $("#calendar").on("click", function () {
