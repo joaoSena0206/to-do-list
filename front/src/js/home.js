@@ -19,10 +19,26 @@ $(function () {
     $("#dropdownDays").on("click", function () {
         if ($("#dropdownOptions").hasClass("hidden")) {
             $("#dropdownOptions").removeClass("hidden");
-        }
-        else
-        {
+
+            $("#dropdownDays").children("span").text("keyboard_arrow_up");
+        } else {
             $("#dropdownOptions").addClass("hidden");
+
+            $("#dropdownDays").children("span").text("keyboard_arrow_down");
         }
     });
+
+    $("#dropdownOptions")
+        .children()
+        .on("click", function (e) {
+            $("#dropdownOptions")
+                .children(`div[dayFilter=${$("#dropdownDays").children("p").attr("dayFilter")}]`)
+                .removeClass("hidden");
+            $("#dropdownDays").children("p").text(e.target.textContent);
+            $("#dropdownDays").children("p").attr("dayFilter", e.target.getAttribute("dayFilter"));
+
+            e.target.classList.add("hidden");
+
+            $("#dropdownOptions").addClass("hidden");
+        });
 });

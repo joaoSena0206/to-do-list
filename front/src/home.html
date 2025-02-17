@@ -54,13 +54,14 @@
 
             <div class="bg-white/21 w-fit py-2 px-2 rounded-md">
                 <div id="dropdownDays" class="flex text-white space-x-2">
-                    <p>Today</p>
-                    <span class="material-symbols-outlined mt-0.5"> keyboard_arrow_down </span>
+                    <p dayFilter="1">Today</p>
+                    <span class="material-symbols-outlined mt-0.5">keyboard_arrow_down</span>
                 </div>
 
                 <div id="dropdownOptions" class="text-white mt-2 space-y-1.5 hidden">
-                    <div>Tomorrow</div>
-                    <div>Other</div>
+                    <div class="hidden" dayFilter="1">Today</div>
+                    <div dayFilter="2">Tomorrow</div>
+                    <div dayFilter="3">Other</div>
                 </div>
             </div>
         </main>
