@@ -17,14 +17,14 @@ $(function () {
     });
 
     $("#dropdownDays").on("click", function () {
-        if ($("#dropdownOptions").hasClass("hidden")) {
-            $("#dropdownOptions").removeClass("hidden");
+        if ($("#dropdownOptions").css("display") == "none") {
+            $("#dropdownOptions").slideDown(300);
 
-            $("#dropdownDays").children("span").text("keyboard_arrow_up");
+            $("#dropdownDays").children("span").addClass("rotate-180");
         } else {
-            $("#dropdownOptions").addClass("hidden");
+            $("#dropdownOptions").slideUp(300);
 
-            $("#dropdownDays").children("span").text("keyboard_arrow_down");
+            $("#dropdownDays").children("span").removeClass("rotate-180");
         }
     });
 
@@ -39,6 +39,7 @@ $(function () {
 
             e.target.classList.add("hidden");
 
-            $("#dropdownOptions").addClass("hidden");
+            $("#dropdownOptions").slideUp(300);
+            $("#dropdownDays").children("span").removeClass("rotate-180");
         });
 });
