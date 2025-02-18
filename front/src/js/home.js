@@ -54,15 +54,15 @@ $(function () {
             $(this).addClass("bg-white/87");
 
             task.attr("completed", "true");
-            task.slideUp(300, function () {
-                $(this).detach().appendTo(sectionCompletedTasks).slideDown(300);
+            task.slideUp(250, function () {
+                $(this).detach().appendTo(sectionCompletedTasks).slideDown(250);
             });
         } else {
             $(this).removeClass("bg-white/87");
 
             task.attr("completed", "false");
-            task.slideUp(300, function () {
-                $(this).detach().appendTo(sectionIncompleteTasks).slideDown(300);
+            task.slideUp(250, function () {
+                $(this).detach().appendTo(sectionIncompleteTasks).slideDown(250);
             });
         }
     });
