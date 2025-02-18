@@ -569,6 +569,24 @@
   .mt-2 {
     margin-top: calc(var(--spacing) * 2);
   }
+  .mt-10 {
+    margin-top: calc(var(--spacing) * 10);
+  }
+  .mt-13 {
+    margin-top: calc(var(--spacing) * 13);
+  }
+  .mt-14 {
+    margin-top: calc(var(--spacing) * 14);
+  }
+  .mt-15 {
+    margin-top: calc(var(--spacing) * 15);
+  }
+  .mt-50 {
+    margin-top: calc(var(--spacing) * 50);
+  }
+  .mt-151 {
+    margin-top: calc(var(--spacing) * 151);
+  }
   .mr-1 {
     margin-right: calc(var(--spacing) * 1);
   }
@@ -581,6 +599,9 @@
   .mb-3 {
     margin-bottom: calc(var(--spacing) * 3);
   }
+  .mb-4 {
+    margin-bottom: calc(var(--spacing) * 4);
+  }
   .mb-5 {
     margin-bottom: calc(var(--spacing) * 5);
   }
@@ -592,6 +613,9 @@
   }
   .mb-18 {
     margin-bottom: calc(var(--spacing) * 18);
+  }
+  .mb-50 {
+    margin-bottom: calc(var(--spacing) * 50);
   }
   .ml-1 {
     margin-left: calc(var(--spacing) * 1);
@@ -617,11 +641,17 @@
   .h-15 {
     height: calc(var(--spacing) * 15);
   }
+  .h-\[16px\] {
+    height: 16px;
+  }
   .h-\[1px\] {
     height: 1px;
   }
   .h-screen {
     height: 100vh;
+  }
+  .w-\[16px\] {
+    width: 16px;
   }
   .w-\[50\%\] {
     width: 50%;
@@ -705,6 +735,13 @@
       margin-block-end: calc(calc(var(--spacing) * 1.5) * calc(1 - var(--tw-space-y-reverse)));
     }
   }
+  .space-y-3 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 3) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-y-reverse)));
+    }
+  }
   .space-y-5 {
     :where(& > :not(:last-child)) {
       --tw-space-y-reverse: 0;
@@ -733,6 +770,16 @@
       margin-inline-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-x-reverse)));
     }
   }
+  .space-x-3 {
+    :where(& > :not(:last-child)) {
+      --tw-space-x-reverse: 0;
+      margin-inline-start: calc(calc(var(--spacing) * 3) * var(--tw-space-x-reverse));
+      margin-inline-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-x-reverse)));
+    }
+  }
+  .rounded-full {
+    border-radius: calc(infinity * 1px);
+  }
   .rounded-md {
     border-radius: var(--radius-md);
   }
@@ -747,15 +794,41 @@
     border-style: var(--tw-border-style);
     border-width: 0.8px;
   }
+  .border-\[1\.5px\] {
+    border-style: var(--tw-border-style);
+    border-width: 1.5px;
+  }
   .border-\[1px\] {
     border-style: var(--tw-border-style);
     border-width: 1px;
+  }
+  .border-\[2px\] {
+    border-style: var(--tw-border-style);
+    border-width: 2px;
   }
   .border-\[\#8875FF\] {
     border-color: #8875FF;
   }
   .border-\[\#979797\] {
     border-color: #979797;
+  }
+  .border-\[\#FFFFFF\/87\] {
+    border-color: #FFFFFF/87;
+  }
+  .border-\[\#FFFFFF\/\] {
+    border-color: #FFFFFF/;
+  }
+  .border-\[\#FFFFFF\] {
+    border-color: #FFFFFF;
+  }
+  .border-white {
+    border-color: var(--color-white);
+  }
+  .border-white\/86 {
+    border-color: color-mix(in oklab, var(--color-white) 86%, transparent);
+  }
+  .border-white\/87 {
+    border-color: color-mix(in oklab, var(--color-white) 87%, transparent);
   }
   .bg-\[\#000000\]\/75 {
     background-color: color-mix(in oklab, #000000 75%, transparent);
@@ -814,6 +887,9 @@
   .py-2\.5 {
     padding-block: calc(var(--spacing) * 2.5);
   }
+  .py-3 {
+    padding-block: calc(var(--spacing) * 3);
+  }
   .py-10 {
     padding-block: calc(var(--spacing) * 10);
   }
@@ -823,12 +899,24 @@
   .pt-20 {
     padding-top: calc(var(--spacing) * 20);
   }
+  .pb-5 {
+    padding-bottom: calc(var(--spacing) * 5);
+  }
+  .pb-10 {
+    padding-bottom: calc(var(--spacing) * 10);
+  }
+  .pb-15 {
+    padding-bottom: calc(var(--spacing) * 15);
+  }
   .text-center {
     text-align: center;
   }
   .text-3xl {
     font-size: var(--text-3xl);
     line-height: var(--tw-leading, var(--text-3xl--line-height));
+  }
+  .text-\[15px\] {
+    font-size: 15px;
   }
   .text-\[18px\] {
     font-size: 18px;
@@ -845,6 +933,9 @@
   }
   .text-\[\#979797\] {
     color: #979797;
+  }
+  .text-\[\#AFAFAF\] {
+    color: #AFAFAF;
   }
   .text-white {
     color: var(--color-white);
