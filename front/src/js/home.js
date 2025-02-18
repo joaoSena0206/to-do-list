@@ -4,6 +4,10 @@ $(function () {
         enableTime: true,
     });
 
+    const taskCompleteBtn = $(".taskCompleteBtn");
+    const sectionCompletedTasks = $("#sectionCompletedTasks");
+    const sectionIncompleteTasks = $("#sectionIncompleteTasks");
+
     $("#calendar").on("click", function () {
         datePicker.toggle();
     });
@@ -42,4 +46,24 @@ $(function () {
             $("#dropdownOptions").slideUp(300);
             $("#dropdownDays").children("span").removeClass("rotate-180");
         });
+
+    taskCompleteBtn.on("click", function (e) {
+        const task = $(this).parent();
+
+        if (task.attr("completed") == "false") {
+            $(this).addClass("bg-white/87");
+
+            task.attr("completed", "true");
+            task.slideUp(300, function () {
+                $(this).detach().appendTo(sectionCompletedTasks).slideDown(300);
+            });
+        } else {
+            $(this).removeClass("bg-white/87");
+
+            task.attr("completed", "false");
+            task.slideUp(300, function () {
+                $(this).detach().appendTo(sectionIncompleteTasks).slideDown(300);
+            });
+        }
+    });
 });
