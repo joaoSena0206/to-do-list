@@ -24,10 +24,10 @@
                     <h1 class="text-[20px] font-bold">Add Task</h1>
                     <span id="closeBtn" class="material-symbols-outlined"> close </span>
                 </div>
-                <input class="text-[18px] w-full border-[1px] border-[#979797] rounded-sm p-1.5 px-2.5 focus:outline-none mb-5" placeholder="Type your task" />
+                <input id="inputTaskName" class="text-[18px] w-full border-[1px] border-[#979797] rounded-sm p-1.5 px-2.5 focus:outline-none mb-5" placeholder="Type your task" />
 
                 <h2 class="text-[20px] font-bold mb-3">Description</h2>
-                <input class="text-[18px] mb-10 w-full border-[1px] border-[#979797] rounded-sm p-1.5 px-2.5 focus:outline-none" placeholder="Type your task's description" />
+                <input id="inputTaskDesc" class="text-[18px] mb-10 w-full border-[1px] border-[#979797] rounded-sm p-1.5 px-2.5 focus:outline-none" placeholder="Type your task's description" />
 
                 <div class="flex items-center justify-between">
                     <div class="flex items-center space-x-2">
@@ -35,7 +35,9 @@
                         <input inert type="text" id="datepicker" class="pointer-events-none select-none outline-none" readonly />
                     </div>
 
-                    <object data="images/icons/send.svg" type=""></object>
+                    <div id="createTaskBtn">
+                        <object class="pointer-events-none" data="images/icons/send.svg" type=""></object>
+                    </div>
                 </div>
             </div>
         </div>
