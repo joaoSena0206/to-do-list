@@ -800,6 +800,9 @@
     font-size: var(--text-3xl);
     line-height: var(--tw-leading, var(--text-3xl--line-height));
   }
+  .text-\[13px\] {
+    font-size: 13px;
+  }
   .text-\[15px\] {
     font-size: 15px;
   }
@@ -821,6 +824,9 @@
   }
   .text-\[\#AFAFAF\] {
     color: #AFAFAF;
+  }
+  .text-\[\#ffffff\] {
+    color: #ffffff;
   }
   .text-white {
     color: var(--color-white);
